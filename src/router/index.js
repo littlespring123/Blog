@@ -1,39 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/Login/index.vue'
-import Layout from '@/views/Layout/index.vue'
- import Home from '@/views/Home/index.vue'
- import Category from '@/views/Category/index.vue'
-// import SubCategory from '@/views/SubCategory/index.vue'
-// import Detail from '@/views/Detail/index.vue'
-// import CartList from '@/views/CartList/index.vue'
-// import Checkout from '@/views/Checkout/index.vue'
-// import Pay from '@/views/Pay/index.vue'
-// import PayBack from '@/views/Pay/PayBack.vue'
-// import Member from '@/views/Member/index.vue'
-// import UserInfo from '@/views/Member/components/UserInfo.vue'
-// import UserOrder from '@/views/Member/components/UserOrder.vue'
+import Blog from '../pages/Blog.vue'
+import Form from '../pages/Form.vue'
+import Home from '../pages/Home.vue'
+import Login from '../pages/Login.vue'
+import Todo from '../pages/Todo.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  // path和component对应关系的位置
   routes: [
-    
-     {path: '/',
-      component: Layout,
-      children: [
-        {
-          path: '',
-          component: Home
-        },
-        {
-          path: 'category/:id',
-          component: Category
-        }]
+    {
+      path: '/',
+      name: 'Home',
+      component:Home 
+    },
+    {
+      path: '/form',
+      name: 'Form',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../pages/Form.vue') // 动态导入组件，提高性能
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component:Blog 
     },
     {
       path: '/login',
-      component: Login
-    }
+      name: 'Login',
+      component:Login 
+    },
+    {
+      path: '/todo',
+      name: 'Todo',
+      component:Todo
+    },
   ]
 })
 
