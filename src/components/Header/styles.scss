@@ -1,0 +1,15 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-logo {
+    user-select: none;
+    color: #fff;
+  }
+
+  &-setting {
+    color: #fff;
+    width: fit-content;
+  }
+}
